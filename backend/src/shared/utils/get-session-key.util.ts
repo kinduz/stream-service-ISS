@@ -1,5 +1,7 @@
-export const getSessionKey = (id: string) => {
-    const SESSION_FOLDER = process.env.SESSION_FOLDER;
+import { ConfigService } from "@nestjs/config";
+
+export const getSessionKey = (id: string, configService: ConfigService) => {
+    const SESSION_FOLDER = configService.getOrThrow<string>("SESSION_FOLDER");
 
     return `${SESSION_FOLDER}${id}`
 }

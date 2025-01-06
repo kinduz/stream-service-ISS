@@ -9,6 +9,7 @@ import { MOCK_IP } from "../constants/mock.constants";
 import DeviceDetector = require("device-detector-js");
 
 const currentLanguage = require("i18n-iso-countries/langs/ru.json");
+
 countries.registerLocale(currentLanguage)
 
 export const getSessionMetadata = (req: Request, userAgent: string): SessionMetadata => {

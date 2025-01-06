@@ -29,4 +29,10 @@ export class UserModel implements User {
 
     @Field(() => Date)
     updatedAt: Date
+
+    @Field(() => Boolean)
+    isVerified: boolean;
+
+    @Field(() => Boolean)
+    isEmailVerified: boolean;
 }
