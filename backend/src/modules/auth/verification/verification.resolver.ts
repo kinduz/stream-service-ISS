@@ -10,7 +10,11 @@ export class VerificationResolver {
   constructor(private readonly verificationService: VerificationService) {}
 
   @Mutation(() => UserModel, {name: "verifyAccount"})
-  public async verify(@Context() {req}: GqlContext, @Args('data') input: VerificationInput, @UserAgent() userAgent: string) {
+  public async verify(
+    @Context() {req}: GqlContext, 
+    @Args('data') input: VerificationInput, 
+    @UserAgent() userAgent: string
+  ) {
     return await this.verificationService.verify(req, input, userAgent);
   }
 }

@@ -10,13 +10,14 @@ import { AccountModule } from '../modules/auth/account/account.module';
 import { SessionModule } from '../modules/auth/session/session.module';
 import { VerificationModule } from '../modules/auth/verification/verification.module';
 import { MailModule } from '../modules/libs/mail/mail.module';
+import { PasswordRecoveryModule } from '../modules/auth/password-recovery/password-recovery.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
             ignoreEnvFile: !IS_DEV_ENV,
       isGlobal: true 
-    }), 
+    }),
     GraphQLModule.forRootAsync({
       driver: ApolloDriver,
       imports: [ConfigModule],
@@ -28,7 +29,8 @@ import { MailModule } from '../modules/libs/mail/mail.module';
     AccountModule,
     SessionModule,
     VerificationModule,
-    MailModule
+    MailModule,
+    PasswordRecoveryModule
   ],
 })
 export class CoreModule {}

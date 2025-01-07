@@ -1,4 +1,15 @@
-import { Body, Head, Heading, Hr, Link, Preview, Section, Tailwind, Text } from "@react-email/components";
+import { 
+    Body, 
+    Container, 
+    Head, 
+    Heading, 
+    Hr, 
+    Img, 
+    Link, 
+    Section, 
+    Tailwind, 
+    Text 
+} from "@react-email/components";
 import { Html } from "@react-email/html";
 import * as React from "react"
 
@@ -12,43 +23,50 @@ export const VerificationTemplate = ({domain, token, username}: TVerificationPro
     const verificationLink = `${domain}/account/verify?token=${token}`;
 
     return (
-        <Html>
-            <Head/>
-            <Preview>ISS: верификация аккаунта</Preview>
-            <Tailwind>
-                <Body className="max-w-2xl mx-auto p-6 bg-slate-50">
-                    <Section className="text-center mb-8">
-                        <Heading as="h2" className="text-3xl text-black font-bold">
-                            Привет, {username}. Подтвердите ваш адрес электронной почты
-                        </Heading>
-                        <Text className="text-base text-black">
-                            {username}, спасибо за регистрацию в ISS! Нам нужно убедиться, что этот адрес электронной почты действительно принадлежит Вам.
-                            Пожалуйста, перейдите по ссылке ниже, чтобы подтвердить ваш аккаунт. Если Вы не создавали аккаунт в ISS, просто проигнорируйте это письмо.
-                        </Text>
-                        <Hr/>
+      <Html>
+        <Tailwind>
+        <Head />
+            <Body className="bg-white text-gray-800">
+                <Container className="p-5 mx-auto bg-gray-100">
+                <Section className="bg-white">
+                    <Section className="bg-gray-900 flex py-5 px-5 items-center justify-center">
+                    <Img
+                        src={"https://i.postimg.cc/CxmsPvsB/image.png"}
+                        alt="ISS logo"
+                    />
+                    </Section>
+                    <Section className="p-6 md:p-8 flex items-center">
+                    <Heading className="text-2xl font-bold text-gray-700 mb-4">
+                        Подтвердите ваш аккаунт
+                    </Heading>
+                    <Text className="text-gray-700 text-sm leading-relaxed mb-4">
+                        {username}, спасибо за регистрацию в ISS! Нам нужно убедиться, что этот адрес электронной почты действительно принадлежит Вам.
+                        Пожалуйста, перейдите по ссылке ниже, чтобы подтвердить ваш аккаунт. Если Вы не создавали аккаунт в ISS, просто проигнорируйте это письмо.
+                    </Text>
+                    <Section className="flex flex-col justify-center items-center">
                         <Link 
                             href={verificationLink} 
                             className="
-                            inline-flex justify-center items-center rounded-full 
-                            px-5 py-2 text-sm font-medium text-blue bg-[#18B9AE]"
+                            flex justify-center items-center rounded-full 
+                            px-5 py-2 text-xl font-medium text-white bg-[#252F3D]"
                         >
-                            👉 Ваша магическая ссылка для подверждения аккаунта 👈
+                            Подтвердить аккаунт
                         </Link>
-                        <Text
-                            style={{
-                            textAlign: "center",
-                            fontSize: 12,
-                            color: "rgb(0,0,0, 0.7)",
-                            }}
-                        >
-                            © 2025 | Москва. По всем вопросам вы можете писать на почту 
-                            <Link href="mailto:egor.shvedov.dev@gmail.com" className="underline">
-                                egor.shvedov.dev@gmail.com
-                            </Link>
-                        </Text>
                     </Section>
-                </Body>
-            </Tailwind>
-        </Html>
+                    </Section>
+                    <Hr />
+                    <Section className="p-6 md:p-8">
+                    <Text className="text-sm text-gray-700">
+                        ISS никогда не попросит вас сообщить ваши персональные данные (пароль, адрес, реквизиты банковской карты и т.д)
+                    </Text>
+                    </Section>
+                </Section>
+                <Text className="text-xs text-gray-700 leading-relaxed px-5">
+                    Это сообщение сформировано и отправлено ISS, SRTech Inc., Россия, г. Москва. © 2025, Is That Stream (ISS), SRTech Inc.
+                </Text>
+                </Container>
+            </Body>
+        </Tailwind>
+      </Html>
     )
 }
