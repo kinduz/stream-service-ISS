@@ -73,7 +73,7 @@ export class PasswordRecoveryService {
         if (isSamePassword) {
             throw new BadRequestException("Новый пароль должен отличаться от старого")
         }
-        
+         
         await this.prismaService.user.update({
             where: {
                 id: existingToken.userId,

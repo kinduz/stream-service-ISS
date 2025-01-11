@@ -13,6 +13,7 @@ import {
 } from "@react-email/components";
 import { Html } from "@react-email/html";
 import * as React from "react"
+import { APP_LOGO_URL_FOR_EMAIL } from "../constants/mail.constants";
 
 type TResetPasswordProps = {
     domain: string;
@@ -33,7 +34,7 @@ export const ResetPasswordTemplate = ({domain, token, username, metadata}: TRese
                   <Section className="bg-white">
                       <Section className="bg-gray-900 flex py-5 px-5 items-center justify-center">
                       <Img
-                          src={"https://i.postimg.cc/CxmsPvsB/image.png"}
+                          src={APP_LOGO_URL_FOR_EMAIL}
                           alt="ISS logo"
                       />
                       </Section>

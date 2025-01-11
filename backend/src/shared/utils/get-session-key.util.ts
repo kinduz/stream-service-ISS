@@ -1,7 +1,7 @@
-import { ConfigService } from "@nestjs/config";
+import { ConfigService } from '@nestjs/config';
 
 export const getSessionKey = (id: string, configService: ConfigService) => {
-    const SESSION_FOLDER = configService.getOrThrow<string>("SESSION_FOLDER");
+	const SESSION_FOLDER = configService.getOrThrow<string>('SESSION_FOLDER');
 
-    return `${SESSION_FOLDER}${id}`
-}
+	return `${SESSION_FOLDER}${id}`;
+};
